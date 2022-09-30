@@ -5,9 +5,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "HelloWorld" ]
+    branches: [ "HelloWorld", "HelloWorld2" ]
   pull_request:
-    branches: [ "HelloWorld" ]
+    branches: [ "HelloWorld", "HelloWorld2" ]
 
 jobs:
 
@@ -22,10 +22,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK 14
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: '14'
+        java-version: '17'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
@@ -38,10 +38,10 @@ jobs:
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v3
-    - name: Set up JDK 14
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-          java-version: 14
+          java-version: 17
     - name: Run tests with Maven
       run: mvn -B test --file pom.xml
 
